@@ -1,0 +1,76 @@
+/*Home*/
+.home-section {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+  }
+
+  .bio-text blockquote {
+    margin-top: 20px;
+    font-style: italic;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+  }
+
+  .bio-content {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    gap: 2rem; /* Space between image and text */
+  }
+
+  .bio-image {
+    flex: 1; /* Allow the image to take up space */
+    display: flex; /* Center the image within the container */
+    justify-content: center; /* Center horizontally */
+  }
+  .bio-image img {
+    width: 150px; /* Set a specific width for the image */
+    height: 150px; /* Set height equal to width for a circle */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    transition: transform 0.3s; /* Animation for hover effect */
+  }
+
+  .bio-image img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+  }
+  .bio-text {
+    flex: 2; /* Allow the text to take up more space */
+  }
+  .bio-text h3 {
+    margin-bottom: 1rem; /* Space below the header */
+  }
+  .bio-text p {
+    margin-bottom: 1rem; /* Space between paragraphs */
+  }
+
+
+/*up pag naa sa mobile*/
+  @media (max-width: 768px) {
+    .bio-content, .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bio-image, .about-image {
+        order: -1; /* Moves the image to the top */
+        margin-bottom: 1rem; /* Add some space below the image */
+    }
+
+    .bio-text, .about-text {
+        text-align: center;
+    }
+}
+
+
+
+
+/*color hover*/
+.bio-image img {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bio-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px 5px #f39c12;
+}
+

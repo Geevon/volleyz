@@ -1,0 +1,95 @@
+/* Comment Section */
+form {
+  max-width: 6  00px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input,
+textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  background-color: #2b5876;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #1d3f5e;
+}
+
+.comment-container {
+  background-color: #f9f9f9;
+  padding: 40px;
+  margin: 3rem auto;
+  border-radius: 10px; /* fallback if --border-radius not set */
+  border: 2px solid #ccc;
+  box-shadow: var(--box-shadow, 0 2px 8px rgba(0,0,0,0.1)); /* default if not defined */
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  transition: var(--transition, all 0.3s ease); /* default fallback */
+  float: left;
+}
+
+.comment-container h2 {
+  text-align: center;
+  color: var(--primary-color, #2b5876); /* fallback if variable not set */
+  margin-bottom: 1.5rem;
+}
+
+.comment-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-container label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: var(--dark-bg, #333); /* fallback */
+}
+
+.comment-container input[type="text"],
+.comment-container textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 10px; /* consistent with container */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.comment-container input[type="text"]:focus,
+.comment-container textarea:focus {
+  outline: none;
+  border-color: var(--primary-color, #2b5876);
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+}
+
+.comment-container button {
+  background-color: var(--accent-color, #e74c3c);
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition, all 0.3s ease);
+}
+
+.comment-container button:hover {
+  background-color: #c0392b;
+}

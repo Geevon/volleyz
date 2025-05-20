@@ -1,0 +1,198 @@
+/* Achievements */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+  
+  .timeline-item {
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    background: #ff6b08;
+    border-radius: 50%;
+    position: absolute;
+    left: -1rem;
+    top: 0.5rem;
+  }
+  
+  .timeline-content {
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Achievements Timeline with Animations */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  overflow: hidden;
+}
+
+/* Vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(to bottom, #ff6b08, #2b5876);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: drawLine 1.5s forwards 0.5s;
+}
+
+@keyframes drawLine {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideIn 0.6s forwards;
+}
+
+/* Staggered animation for items */
+.timeline-item:nth-child(1) { animation-delay: 0.3s; }
+.timeline-item:nth-child(2) { animation-delay: 0.6s; }
+.timeline-item:nth-child(3) { animation-delay: 0.9s; }
+.timeline-item:nth-child(4) { animation-delay: 1.2s; }
+
+@keyframes slideIn {
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: #ff6b08;
+  border-radius: 50%;
+  position: absolute;
+  left: -1.1rem;
+  top: 0.5rem;
+  z-index: 1;
+  box-shadow: 0 0 0 4px rgba(255, 107, 8, 0.3);
+  transform: scale(0);
+  animation: popIn 0.5s forwards;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); }
+  80% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Emoji decoration for dot */
+.timeline-dot::after {
+  content: "🏆";
+  position: absolute;
+  left: -8px;
+  top: -8px;
+  font-size: 1rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.timeline-content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine effect on hover */
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+      to right,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.3) 100%
+  );
+  transform: skewX(-25deg);
+  transition: all 0.6s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.timeline-item:hover .timeline-content::before {
+  left: 120%;
+}
+
+.timeline-item:hover .timeline-dot {
+  background: #2b5876;
+  box-shadow: 0 0 0 4px rgba(43, 88, 118, 0.3);
+  transform: scale(1.2);
+}
+
+.timeline-item:hover .timeline-dot::after {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+/* Date badge animation */
+.timeline-date {
+  display: inline-block;
+  background: #ff6b08;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-date {
+  background: #2b5876;
+  transform: scale(1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .timeline {
+      padding-left: 1.5rem;
+  }
+  
+  .timeline-dot {
+      width: 14px;
+      height: 14px;
+      left: -0.9rem;
+  }
+  
+  .timeline-item {
+      animation: fadeInMobile 0.6s forwards;
+  }
+  
+  @keyframes fadeInMobile {
+      from {
+          opacity: 0;
+          transform: translateY(20px);
+      }
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+}
